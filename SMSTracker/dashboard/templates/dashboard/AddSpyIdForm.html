@@ -1,0 +1,117 @@
+{% extends 'dashboard/index.html' %}
+{% load staticfiles %}
+        {% block content %}
+           {% include 'dashboard/header_partial.html' %}     
+              <!-- start section content-->
+        <section class="section-content">
+            {% include 'dashboard/sidebar_partial.html' %}                                  
+            <!-- start content -->
+            <div class="content">
+                <!-- content header -->
+                <header class="content-header">
+                    <!-- content title-->
+                    <div class="page-header"><h1>Add Phone and Pin</h1></div>
+                    <!-- content breadcrumb -->
+                </header> <!--/ content header --> 
+             <div class="content-inner">               
+                           <!-- widget submitHandler -->
+                            <div class="widget border-cyan" id="widget-submitHandler">
+                                <!-- widget header -->
+                                <div class="widget-header bg-steel">
+                                    <!-- widget title -->
+                                    <h4 class="widget-title">Привязанные номера телефонов</h4>
+                                    <!-- widget action, you can also use btn, btn-group, nav-tabs or nav-pills (also support dropdown). enjoy! -->
+                                </div><!-- /widget header -->
+                                <!-- widget content -->
+                                <div class="widget-content">
+                                    <form method="post" action="{% url "dashboard.views.add_phone" %}">
+                                         {% csrf_token %}
+                                        <fieldset>
+                                            <legend>Добавьте номер телефона для отслеживания</legend>
+                                            <div class="control-group">
+                                                <label class="control-label" for="cname">Телефон</label>
+                                                <div class="controls">
+                                                    {{ form.to_phone }}  
+                                                </div>
+                                            </div><!-- /control-group -->
+                                            <div class="control-group">
+                                                <label class="control-label" for="cemail">PIN</label>
+                                                <div class="controls">
+                                                    {{ form.pin}}  
+                                                </div>
+                                            </div><!-- /control-group -->
+                                        </fieldset>
+                                        <button class="btn btn-primary" type="submit">Добавить</button>
+                                    </form>
+                                </div><!-- /widget content -->
+                            </div> <!-- /widget submitHandler -->
+
+                              <!-- widget, content manager -->
+                                    <div class="widget border-cyan" id="widget-cm">
+                                        <div class="widget-header bg-steel">
+                                            <!-- widget icon -->
+                                            <div class="widget-icon"><i class="aweso-comments"></i></div>
+                                            <!-- widget title -->
+                                            <h4 class="widget-title">Content Manager</h4>
+                                            <!-- widget action, you can also use btn, btn-group, nav-tabs or nav-pills (also support dropdown). enjoy! -->
+                                            </div>
+                                        </div>
+                                        <div class="widget-content">
+                                            <div class="tab-content">
+                                                <!-- posts -->
+                                                <div class="tab-pane fade in active" id="posts">
+
+                                                <form method="post" action="{% url "dashboard.views.delete_pointer" %}">
+                                                    {% csrf_token %}  
+                                                    <table class="table" data-sorter="true"> 
+                                                        <thead> 
+                                                            <tr> 
+                                                                <th>&nbsp;</th> 
+                                                                <th>To Phone<th> 
+                                                                <th>Pin</th>  
+                                                            </tr> 
+                                                        </thead> 
+                                                        <tbody> 
+                                                            {% for item in pinList %}
+                                                                <tr>                                                              
+                                                                    <td><input type="checkbox" name="pointer_user[]" value="{{item.id}}"></td> 
+                                                                    <td>{{ item.to_phone }}</td> 
+                                                                    <td>{{ item.pin }}</td> 
+                                                                </tr> 
+                                                            {% endfor %}
+                                                        </tbody> 
+                                                    </table>
+                                                    <button class="btn btn-primary" type="submit">Удалить</button>
+                                                </form>
+                                                </div><!-- /comments -->
+                                                
+                                            </div><!-- /tab content -->
+                                        </div><!-- /widget content -->
+                                    </div><!-- /widget, content manager -->
+                </div>
+        </section><!-- /end section content-->             
+        {% endblock %}
+
+{% block jsfile %} 
+<script type="text/javascript" src="{% static 'dashboard/js/holder/holder.js' %}"></script>
+        <!-- javascript
+        ================================================== -->
+        <!-- required js -->
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery-ui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.ui.touch-punch.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+        
+        <!-- apps component js, optional -->
+        <script type="text/javascript" src="{% static 'dashboard/js/select2/select2.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/bootstrap-fileupload/bootstrap-fileupload.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/form-validate/jquery.validate.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/form-validate/additional-methods.min.js' %}"></script>
+        
+        <!-- metro js, required! -->
+        <script type="text/javascript" src="{% static 'dashboard/js/metro-base.js' %}"></script>
+        
+        <!-- demo js -->
+        <script type="text/javascript" src="{% static 'dashboard/js/holder/holder.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/demo/form-validation.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'dashboard/index.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Signin" %}{% endblock %}
+
+{% block content %}
+    <section class="section-content bg-none">
+        <div class="content full-page">                
+                <!-- content page -->
+                <article class="content-page">
+                    <!-- main page, you're application here -->
+                    <div class="main-page">
+                        <div class="content-inner">
+                            <div class="row-fluid">
+                                <div class="span4 offset4">
+                                    <!-- widget login -->
+                                    <div class="widget no-border bg-black">
+                                        <!-- widget content -->
+                                        <div class="widget-content">
+                                            <div class="text-center color-silver">
+                                                <h1>
+                                                    <a href="" class="help-block" title="your logo"><i class="aweso-th-large text-4x"></i></a>
+                                                    Stilearn Metro
+                                                </h1>
+                                            </div>
+                                            <form class="form-vertical" action="" method="post">
+                                                {% csrf_token %}
+                                                {{ form.non_field_errors }}
+                                                {% for field in form %}
+                                                    {{ field.errors }}
+                                                    {% comment %} Displaying checkboxes differently {% endcomment %}
+                                                    {% if field.name == 'remember_me' %}
+                                                    <p class="checkbox">
+                                                        <label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
+                                                    </p>
+                                                    {% else %}
+                                                    
+                                                        {{ field.label_tag }}
+                                                        <div class="controls">
+                                                            {{ field }}
+                                                        </div>
+                                                    
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <input class="btn btn-large btn-block bg-cyan" type="submit" name="logSubmit" value="{% trans "Signin" %}" />
+                                            </form>
+                                        </div><!-- /widget content -->
+                                    </div> <!-- /widget login -->
+                                    
+                                </div><!-- /span offset4 -->
+                            </div><!-- /row -->
+                            
+                        </div><!-- /content-inner -->
+                    </div><!-- /main-page -->
+                    
+                </article> <!-- /content page -->
+
+            </div> <!--/ end content -->
+     </section>
+{% endblock %}
+{% block footer %}
+{% endblock %}

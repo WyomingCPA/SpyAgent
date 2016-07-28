@@ -1,0 +1,9 @@
+PLUGINS
+validators
+BaseGeometryWidget
+unicode_literals
+slugify
+LeafletWidget
+app_settings
+PLUGIN_FORMS
+forms

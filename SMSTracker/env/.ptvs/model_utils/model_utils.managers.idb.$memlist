@@ -1,0 +1,15 @@
+InheritanceQuerySetMixin
+InheritanceQuerySet
+InheritanceManagerMixin
+OneToOneRel
+string_types
+django
+QueryManager
+InheritanceManager
+OneToOneField
+ObjectDoesNotExist
+QuerySet
+models
+unicode_literals
+QueryManagerMixin
+LOOKUP_SEP

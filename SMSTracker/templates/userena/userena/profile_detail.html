@@ -1,0 +1,42 @@
+{% extends 'dashboard/index.html' %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with profile.user.username as username %}{{ username }}'s profile.{% endblocktrans %}{% endblock %}
+{% block content_title %}<h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
+
+{% block content %}
+    {% include 'dashboard/header_partial.html' %}  
+    <section class="section-content">
+         {% include 'dashboard/sidebar_partial.html' %}                                  
+            <!-- start content -->
+            <div class="content">
+                <!-- content header -->
+                <header class="content-header">
+                    <!-- content title-->
+                    <div class="page-header"><h1>Profiles</h1></div>
+
+                    <!-- content breadcrumb -->
+                    <ul class="breadcrumb breadcrumb-inline">
+                        <!-- <li><a href="table-datatables.html#">Home</a> <span class="divider"><i class="aweso-angle-right"></i></span></li> -->
+                        <!-- <li class="active">Datatables</li> -->
+                    </ul> 
+                </header> <!--/ content header -->                
+                                 <!-- content page -->
+                <article class="content-page">
+                    <!-- main page, you're application here -->
+                    <div class="main-page">
+                        <div class="content-inner">
+                                  <div class="row-fluid">
+                                    <div class="span4">
+                                        <p class="muted">Имя пользователя: {{ user.username }}</p>
+                                    </div>
+                                </div>
+                        </div><!-- /content-inner-->
+                    </div><!-- /main-page-->
+
+                    <div class="clearfix"></div>
+                </article> <!-- /content page -->
+
+            </div><!--/ end content -->
+        </section><!-- /end section content--> 
+{% endblock %}

@@ -1,0 +1,106 @@
+        
+<!-- start header-->
+        <header class="header">
+            <!-- start navbar, this navbar on top -->
+            <div id="navbar-top" class="navbar navbar-steel">
+                <!-- navbar inner-->
+                <div class="navbar-inner">
+                    <!-- container-->
+                    <div class="container">
+                        
+                        <!--this btn-navbar contains the menu on the side-left, will be seen on portrait tablet and less. -->
+                        <a class="btn btn-navbar help-inline" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>                        
+                        <!-- Your brand here, images or text -->
+                        <a class="brand" href="">
+                            <!-- just a sample brand, replace with your own -->
+                            <i class="aweso-th-large"></i> SMSTracker
+                        </a>                       
+                        <!-- Un-collapse nav -->
+                        <div class="nav-uncollapse">
+                           
+                            <!-- pull right menu-->
+                            <ul class="nav pull-right">
+                            <!-- Output Balance -->
+                            <li class="dropdown">
+                                <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Balance: {{ balance }}</a>
+                            </li>
+                            <!-- End  Output Balance -->
+                                <!-- notification -->
+                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <div class="label">3</div>
+                                        <i class="aweso-bell-alt"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-extend" role="menu" aria-labelledby="dropdownMenu">
+                                        <li class="dropdown-header">You have 4 new notofications</li>
+                                        <li>
+                                            <a tabindex="-1" href="index.html#">
+                                                <div class="media">
+                                                    <div class="pull-left">
+                                                        <img class="media-object" data-src="holder.js/32x32">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><small class="pull-right">Just Now</small> Update version</h4>
+                                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque...</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="index.html#">
+                                                <div class="media">
+                                                    <div class="pull-left">
+                                                        <img class="media-object" data-src="holder.js/32x32">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><small class="pull-right">5 minutes</small> Jane Smith</h4>
+                                                        <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit...</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="index.html#">
+                                                <div class="media">
+                                                    <div logclass="pull-left">
+                                                        <img class="media-object" data-src="holder.js/32x32">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><small class="pull-right">3 hours</small> New comment</h4>
+                                                        <p>Tellus ac cursus commodo, tortor mauris condimentum nibh...</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-footer">
+                                            <a tabindex="-1" href="index.html#"><i class="aweso-angle-right pull-right"></i> See all notifications</a>
+                                        </li>
+                                    </ul>
+                                </li><!-- /notification -->
+                                                                                               
+                                <!-- account -->
+
+                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">
+                                        {{ user.username }} <i class="aweso-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                        <li><a tabindex="-1" href="{% url 'userena_profile_detail' user.username %}">Profile</a></li>
+                                        <li class="divider"></li>
+                                        <li><a tabindex="-1" href="{% url 'userena_signout' %}">Logout</a></li>
+                                    </ul>
+                                </li><!-- /account -->
+                            </ul><!--/pull right menu-->
+                        </div><!-- /uncollapse nav -->
+                        
+                        <!-- Everything you want hidden at 940px or less, leave it blank! (this use when side-left collapse) -->
+                        <div id="navbar-collapse" class="nav-collapse collapse hidden-desktop"></div>                      
+                    </div><!--/container-->
+                </div><!--/navbar-inner-->
+                
+            </div> <!--/ navbar-->
+        </header> <!--/ end header-->

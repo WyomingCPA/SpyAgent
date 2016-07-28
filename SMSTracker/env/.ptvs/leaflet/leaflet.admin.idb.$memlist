@@ -1,0 +1,7 @@
+LeafletWidget
+ModelAdmin
+unicode_literals
+LeafletGeoAdmin
+GeometryField
+GeoJSONField
+ImproperlyConfigured

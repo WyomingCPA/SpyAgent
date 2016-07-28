@@ -1,0 +1,71 @@
+﻿{% load render_table from django_tables2 %}
+{{filter.media}}
+                <!-- content page -->
+                <article class="content-page">
+                    <!-- main page, you're application here -->
+                    <div class="main-page">
+                        <div class="content-inner">
+                        <!-- Filter -->
+                            <div class="widget border-steel" id="widget-filter">
+                                <!-- widget header -->
+                                <div class="widget-header bg-steel">
+                                    <!-- widget icon -->
+                                    <div class="widget-icon"><i class="aweso-filter"></i></div>
+                                    <!-- widget title -->
+                                    <h4 class="widget-title">Filter</h4>
+                                    <!-- widget action, you can also use btn, btn-group, nav-tabs or nav-pills (also support dropdown). enjoy! -->
+                                    <div class="widget-action color-steel">
+                                        <button data-toggle="collapse" data-collapse="#widget-filter" class="btn">
+                                            <i class="aweso-minus" data-toggle-icon="aweso-minus aweso-plus"></i>
+                                        </button>
+                                    </div>
+                                </div><!-- /widget header -->
+
+                                <!-- widget content -->
+                                <div class="widget-content" >
+                                    <form method="get" action="{% url "dashboard.views.sms_table" %}"> 
+                                        <div class="control-group">
+                                        <label class="control-label" for="datepicker">Date Range</label>
+                                        <div class="controls controls-row">                                             
+                                            {{ filter.startDate }}                                            
+                                            {{ filter.endsDate }}
+                                        </div>
+                                        </div>                                                                                
+                                            <div class="control-group">
+                                                <label class="control-label" for="datepicker">Contains</label>
+                                                 <div class="controls controls-row">
+                                                     {{ filter.text_contains }}
+                                                     {{ filter.fromphone_contains }}
+                                                 </div>
+                                            </div>
+                                           <button class="btn btn-primary" type="submit">Filter</button>                                           
+                                    </form>
+                                </div><!-- /widget content -->
+                            </div> <!-- /widget Filter -->
+                            <!-- widget datatables #1 -->
+                            <div class="widget border-steel" id="widget-datatables1">
+                                <!-- widget header -->
+                                <div class="widget-header bg-steel">
+                                    <!-- widget icon -->
+                                    <div class="widget-icon"><i class="aweso-table"></i></div>
+                                    <!-- widget title -->
+                                    <h4 class="widget-title">Standard</h4>
+                                    <!-- widget action, you can also use btn, btn-group, nav-tabs or nav-pills (also support dropdown). enjoy! -->
+                                    <div class="widget-action color-steel">
+                                        <button data-toggle="collapse" data-collapse="#widget-datatables1" class="btn">
+                                            <i class="aweso-minus" data-toggle-icon="aweso-minus aweso-plus"></i>
+                                        </button>
+                                    </div>
+                                </div><!-- /widget header -->
+
+                                <!-- widget content -->
+                                <div class="widget-content">
+                                    {% render_table sms %}
+                                </div><!-- /widget content -->
+                            </div> <!-- /widget datatables #1 -->
+
+                        </div><!-- /content-inner-->
+                    </div><!-- /main-page-->
+
+                    <div class="clearfix"></div>
+                </article> <!-- /content page -->

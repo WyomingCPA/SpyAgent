@@ -1,0 +1,74 @@
+{% extends 'dashboard/index.html' %}
+{% load staticfiles %}
+
+{% block css_file %}
+        <!-- styles -->
+        <link href="{% static 'dashboard/css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/bootstrap-responsive.css' %}" rel="stylesheet">
+        <!-- default theme -->
+        <link href="{% static 'dashboard/css/metro-bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/metro.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/metro-responsive.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/metro-helper.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/font-awesome.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/icomoon.css' %}" rel="stylesheet">
+        
+        <!-- other -->
+        <link href="{% static 'dashboard/css/select2/select2-metro.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/datepicker/datepicker.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/timepicker/bootstrap-timepicker.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/datetimepicker/datetimepicker.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/colorpicker/bootstrap-colorpicker.css' %}" rel="stylesheet">
+{% endblock %}
+
+        {% block content %}
+           {% include 'dashboard/header_partial.html' %}     
+              <!-- start section content-->
+        <section class="section-content">
+            {% include 'dashboard/sidebar_partial.html' %} 
+                                 
+            <!-- start content -->
+            <div class="content">
+                <!-- content header -->
+                <header class="content-header">
+                    <!-- content title-->
+                    <div class="page-header"><h1>SMS Table</h1></div>
+
+                    <!-- content breadcrumb -->
+                </header> <!--/ content header -->                
+                {% include 'dashboard/table_partial.html' %} 
+
+            </div><!--/ end content -->
+        </section><!-- /end section content-->             
+        {% endblock %}
+
+{% block jsfile %} 
+        <!-- javascript
+        
+        ================================================== -->
+        <!-- required js -->
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery-ui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.ui.touch-punch.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/m-scrollbar/jquery.mCustomScrollbar.min.js' %}"></script>
+        
+        <!-- apps component js, optional -->
+        <script type="text/javascript" src="{% static 'dashboard/js/select2/select2.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/bootstrap-fileupload/bootstrap-fileupload.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/inputmask/jquery.inputmask.bundle.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/datepicker/bootstrap-datepicker.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/timepicker/bootstrap-timepicker.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/daterangepicker/moment.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/daterangepicker/daterangepicker.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/colorpicker/bootstrap-colorpicker.js' %}"></script>
+        
+        <!-- metro js, required! -->
+        <script type="text/javascript" src="{% static 'dashboard/js/metro-base.js' %}"></script>
+        
+        <!-- demo js -->
+        <script type="text/javascript" src="{% static 'dashboard/js/holder/holder.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/demo/form-elements.js' %}"></script>
+{% endblock %}

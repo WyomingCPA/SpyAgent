@@ -1,0 +1,154 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}SMSTracker{% endblock %}</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="stilearn metro admin bootstrap">
+        <meta name="author" content="stilearning">
+        {% block css_file %}       
+        <!-- styles -->
+        <link href="{% static 'dashboard/css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/bootstrap-responsive.css' %}" rel="stylesheet">
+        <!-- default theme -->
+        <link href="{% static 'dashboard/css/metro-bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/metro.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/metro-responsive.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/metro-helper.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/font-awesome.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/m-scrollbar/jquery.mCustomScrollbar.css' %}" rel="stylesheet">
+        
+        <!-- other -->
+        <link href="{% static 'dashboard/css/select2/select2-metro.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/wysihtml5/bootstrap-wysihtml5.css' %}" rel="stylesheet">
+        <link href="{% static 'dashboard/css/morrisjs/morris.css' %}" rel="stylesheet">
+        {% endblock %}  
+        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="{% static 'dashboard/js/html5shiv.js' %}"></script>
+          <script src="{% static 'dashboard/js/lte-ie7.js' %}"></script>
+        <![endif]-->
+        
+        <!-- fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="ico/favicon.png">
+    </head>
+    <body>
+             
+        {% block content %}
+           {% include 'dashboard/header_partial.html' %}     
+
+
+              <!-- start section content-->
+        <section class="section-content">
+            {% include 'dashboard/sidebar_partial.html' %} 
+                                 
+            <!-- start content -->
+            <div class="content">
+                <!-- content header -->
+                <header class="content-header">
+                    <!-- content action (optional)-->
+
+                    <!-- content title-->
+                    <div class="page-header"><h1>Dashboard</h1></div>                                        
+                    <!-- content breadcrumb -->
+                </header> <!--/ content header -->  
+                                    <p class="lead">Text Based</p>
+                                    <div class="stilearn-block-demo bg-silver">
+                                        <div class="row-fluid">
+                                            
+                                            <div class="span4 tile bg-cyan">
+                                                <div class="tile-content">
+                                                    <div class="text-based">
+                                                        <p>"Tincidunt libero vestibulum elementum, vitae interdum ullamcorper ut fusce pellentesque non, mauris enim ac. Pellentesque hendrerit cursus elit"</p>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-peek">
+                                                    <div class="brand">Quotes Daily</div>
+                                                    <div class="badge">14</div>
+                                                </div>
+                                            </div> <!-- /tile -->
+                                            
+                                            <div class="span4 tile bg-teal">
+                                                <div class="tile-content">
+                                                    <div class="text-based">
+                                                        <h4>Re: Dinner Invitation</h4>
+                                                        <p>Hi Bent, Vestibulum pellentesque risus wisi orci laoreet. Semper sagittis ut vestibulum, vel in semper vitae ut...</p>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-peek">
+                                                    <div class="icon"><i class="icomo-mail-5"></i></div>
+                                                    <div class="badge">2</div>
+                                                </div>
+                                            </div> <!-- /tile -->
+                                            
+                                            <div class="span4 tile bg-orange">
+                                                <div class="tile-content">
+                                                    <div class="text-based">
+                                                        <p class="lead">10 Best Design With Twitter Bootstrap</p>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-peek">
+                                                    <div class="icon"><i class="icomo-feed-3"></i></div>
+                                                    <div class="badge">5</div>
+                                                </div>
+                                            </div> <!-- /tile -->
+                                            
+                                        </div> <!-- /row -->
+                                    </div> <!-- /block demo -->
+            </div><!--/ end content -->
+        </section><!-- /end section content-->
+        {% endblock %}
+
+        {% block footer %}
+         <!-- footer, I place the footer on here. -->
+        <footer class="footer">
+            <p>Copyright &copy; 2016. All Right Reserved.</p>
+        </footer><!--/ footer -->
+        {% endblock %}
+
+        {% block jsfile %}   
+        <!-- javascript
+        
+        ================================================== -->
+        <!-- required js -->
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery-ui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.ui.touch-punch.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/m-scrollbar/jquery.mCustomScrollbar.min.js' %}"></script>
+        
+        <!-- apps component js, optional -->
+        <script type="text/javascript" src="{% static 'dashboard/js/morrisjs/raphael-min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/morrisjs/morris.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/daterangepicker/moment.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/select2/select2.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/wysihtml5/wysihtml5-0.3.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/wysihtml5/bootstrap-wysihtml5.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.tablesorter.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/jquery.equalHeight.js' %}"></script>
+        
+        <!-- metro js, required! -->
+        <script type="text/javascript" src="{% static 'dashboard/js/metro-base.js' %}"></script>
+        
+        <script type="text/javascript" src="{% static 'dashboard/js/bootbox/bootbox.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/pnotify/jquery.pnotify.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/scripts/notify.js' %}"></script>
+        <script type="text/javascript">
+            //show_stack_topleft('success');
+        </script>
+        <!-- demo js -->
+        <script type="text/javascript" src="{% static 'dashboard/js/holder/holder.js' %}"></script>
+        <script type="text/javascript" src="{% static 'dashboard/js/demo/dashboard.js' %}"></script> 
+
+        {% endblock %}      
+    </body>
+</html>
