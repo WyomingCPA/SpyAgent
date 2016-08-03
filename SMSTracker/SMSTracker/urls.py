@@ -14,7 +14,8 @@ import app.views
 import notifications.urls
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token
-from sms_save_app.views import SmstelViewSet, UserViewSet, FindMoreId
+from SMSApp.api import SmstelViewSet, UserViewSet
+from ToolsApp.api import FindMoreId
 
 router = routers.DefaultRouter()
 router.register(r'smstel', SmstelViewSet)

@@ -2,9 +2,29 @@
             <div id="navside" class="side-left" data-collapse="navbar">
                 <!--nav, this structure create with nav (find the bootstrap doc about .nav list) -->
                 <ul class="nav nav-list">
-                    <li><a href="{% url 'sms_table' %}">SMS</a></li>
                     <li><a href="{% url 'gps' %}">GPS</a></li>
-                    <li><a href="{% url 'add_phone' %}">Phone</a></li>
-                    <li><a href="{% url 'index' %}">Описание</a></li>                    
+                    <li><a href="{% url 'add_phone' %}">Код отслеживания</a></li>
+                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Passwords </a></li> 
+                    <li><a href="">Passcode </a></li>
+                    <li><a href="">Calls</a></li>
+                    <li class="dropdown-list open">
+                        <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown-list">Messages</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'sms_table' %}">SMS</a></li>
+                        </ul>
+                    </li>                    
+                    <li><a href="">Media</a></li> 
+                    <li><a href="">Locations</a></li> 
+                    <li><a href="">Ambient</a></li> 
+                    <li><a href="">RemCam</a></li> 
+                    <li><a href="">Contacts</a></li>
+                    <li><a href="">Apps</a></li>
+                    <li><a href="">Websites</a></li>
+                    <li><a href="">Notes</a></li>
+                    <li><a href="">Calendars</a></li> 
+                    <li><a href="">Account</a></li> 
+                    <li><a href="">Control Center</a></li>
+                    <li><a href="">Alerts</a></li>                    
                 </ul><!-- /nav -->
             </div><!-- /side left-->

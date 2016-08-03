@@ -3,18 +3,19 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
-from sms_save_app.models import smstel, MoreIdSpy, GPSCoordinates
+from SMSApp.models import Sms
+from ToolsApp.models import MoreIdSpy
+#from GPSApp.models import GPSCoordinates
 from tables import SmsTable, MoreIdSpyTable
 from django_tables2.config import RequestConfig
 from dashboard.forms import FilterDashboardForm, MoreIdSpyForm
-from balance.models import UserBalanceChange
 from djgeojson.views import GeoJSONLayerView
 
 @login_required(login_url='/accounts/signin/')
 def index(request):
     assert isinstance(request, HttpRequest)
     config = RequestConfig(request)
-    table = SmsTable(smstel.objects.all())
+    table = SmsTable(Sms.objects.all())
     config.configure(table)
     return render(request, 'dashboard/index.html',
         {
@@ -24,9 +25,7 @@ def index(request):
 
 @login_required(login_url='/accounts/signin/')
 def sms_table(request):
-    user_balance = UserBalanceChange.objects.get(user=request.user)
-
-    data_user = smstel.objects.filter(user=request.user)
+    data_user = Sms.objects.filter(user=request.user)
     if request.method == 'GET':
         form = FilterDashboardForm(request.GET)
         text_contains = request.GET.get('text_contains', '')
@@ -43,13 +42,13 @@ def sms_table(request):
         filter_data = data_user.filter(date__range=[startData, endsDate], text__contains = text_contains, from_phone__contains = fromphone_contains).values()
         table = SmsTable(filter_data)
         config.configure(table)
-        return render(request, 'dashboard/sms_table.html', {'filter': form, 'sms': table, 'balance': str(user_balance.amount),})
+        return render(request, 'dashboard/sms_table.html', {'filter': form, 'sms': table,})
     else:
         form = FilterDashboardForm()
         config = RequestConfig(request)
         table = SmsTable(data_user.all())
         config.configure(table)
-        return render(request, 'dashboard/sms_table.html', {'filter': form, 'sms': table, 'balance': str(user_balance.amount),})
+        return render(request, 'dashboard/sms_table.html', {'filter': form, 'sms': table, })
 
 
 @login_required(login_url='/accounts/signin/')

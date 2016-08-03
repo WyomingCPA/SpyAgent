@@ -1,19 +1,13 @@
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
-
-
-from rest_framework import viewsets, generics
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import status
-from sms_save_app.models import smstel, MoreIdSpy
+from .models import Sms
 from balance.models import UserBalanceChange
-from serializers import SmstelSerializer, MoreIdSpySerializer, UserSerializer
-from datetime import datetime    
+from serializers import SmstelSerializer, UserSerializer
+from datetime import datetime
+from rest_framework import viewsets, generics
+from django.contrib.auth.models import User
+
 
 class SmstelViewSet(viewsets.ModelViewSet):
-    queryset = smstel.objects.all()[0:1]
+    queryset = Sms.objects.all()[0:1]
     serializer_class = SmstelSerializer
     http_method_names = ['post', ]
     
@@ -24,10 +18,10 @@ class SmstelViewSet(viewsets.ModelViewSet):
             check_data = request.data
             for item in check_data:
                 try:
-                    smstel.objects.get(from_phone=item['from_phone'], to_phone=item['to_phone'], text=item['text'], date=item['date'], user=item['user']) 
-                except smstel.DoesNotExist:                
+                    Sms.objects.get(from_phone=item['from_phone'], to_phone=item['to_phone'], text=item['text'], date=item['date'], user=item['user']) 
+                except Sms.DoesNotExist:                
                     to_user = User.objects.get(id=item['user'])
-                    sms = smstel(from_phone=item['from_phone'], to_phone=item['to_phone'], text=item['text'], date=item['date'], user=to_user, timestamp = datetime.now())          
+                    sms = Sms(from_phone=item['from_phone'], to_phone=item['to_phone'], text=item['text'], date=item['date'], user=to_user, timestamp = datetime.now())          
                     sms.save()
 
             headers = self.get_success_headers(serializer.data)
@@ -35,18 +29,6 @@ class SmstelViewSet(viewsets.ModelViewSet):
         user_balance = user.balance.value
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class FindMoreId(viewsets.ModelViewSet):
-    queryset = MoreIdSpy.objects.all()
-    serializer_class = MoreIdSpySerializer
-
-    def get_queryset(self):
-        #to_phone = self.kwargs['to_phone']
-        to_phone = self.request.GET['to_phone']
-        pin = self.request.GET['pin']
-        result = MoreIdSpy.objects.filter(to_phone__contains = to_phone, pin = pin)[0:1]
-        return result 
 
               
 class UserViewSet(viewsets.ModelViewSet):
@@ -73,4 +55,3 @@ class UserViewSet(viewsets.ModelViewSet):
         user = get_object_or_404(queryset, pk=pk)
         serializer = UserSerializer(user)
         return Response(serializer.data)
-         

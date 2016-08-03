@@ -1,5 +1,5 @@
 import django_tables2 as tables
-from sms_save_app.models import smstel
+from SMSApp.models import Sms
 
 class SmsTable(tables.Table):
     from_phone = tables.Column(attrs={'class':'',},)

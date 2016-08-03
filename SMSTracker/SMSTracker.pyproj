@@ -11,7 +11,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>043b9e38-0507-4545-9b43-bb793c73c2d7</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
+    <ProjectHome>
+    </ProjectHome>
     <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>manage.py</StartupFile>
     <SearchPath>
@@ -46,12 +47,13 @@
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="balance\admin.py" />
     <Compile Include="balance\apps.py" />
+    <Compile Include="balance\context_processors.py" />
     <Compile Include="balance\migrations\__init__.py" />
     <Compile Include="balance\models.py" />
     <Compile Include="balance\tests.py" />
     <Compile Include="balance\views.py" />
     <Compile Include="balance\__init__.py" />
-    <Compile Include="dashboard\admin.py" />
+    <Compile Include="GPSApp\admin.py" />
     <Compile Include="dashboard\apps.py" />
     <Compile Include="dashboard\forms.py">
       <SubType>Code</SubType>
@@ -67,27 +69,47 @@
     </Compile>
     <Compile Include="dashboard\views.py" />
     <Compile Include="dashboard\__init__.py" />
+    <Compile Include="GPSApp\apps.py" />
+    <Compile Include="GPSApp\models.py" />
+    <Compile Include="GPSApp\views.py" />
+    <Compile Include="GPSApp\__init__.py" />
     <Compile Include="manage.py" />
+    <Compile Include="SMSApp\admin.py" />
+    <Compile Include="SMSApp\api.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SMSApp\apps.py" />
+    <Compile Include="SMSApp\migrations\0001_initial.py" />
+    <Compile Include="SMSApp\migrations\__init__.py" />
+    <Compile Include="SMSApp\templatetags\__init__.py" />
+    <Compile Include="SMSApp\tests.py" />
+    <Compile Include="SMSApp\views.py" />
+    <Compile Include="SMSApp\__init__.py" />
     <Compile Include="SMSTracker\__init__.py" />
     <Compile Include="SMSTracker\settings.py" />
     <Compile Include="SMSTracker\urls.py" />
     <Compile Include="SMSTracker\wsgi.py" />
-    <Compile Include="sms_save_app\admin.py" />
-    <Compile Include="sms_save_app\apps.py" />
-    <Compile Include="sms_save_app\migrations\__init__.py" />
-    <Compile Include="sms_save_app\models.py" />
-    <Compile Include="sms_save_app\serializers.py">
+    <Compile Include="SMSApp\models.py" />
+    <Compile Include="SMSApp\serializers.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="sms_save_app\templatetags\sms_save_app_tags.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="sms_save_app\templatetags\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="sms_save_app\tests.py" />
-    <Compile Include="sms_save_app\views.py" />
-    <Compile Include="sms_save_app\__init__.py" />
+    <Compile Include="support\admin.py" />
+    <Compile Include="support\apps.py" />
+    <Compile Include="support\migrations\__init__.py" />
+    <Compile Include="support\models.py" />
+    <Compile Include="support\tests.py" />
+    <Compile Include="support\views.py" />
+    <Compile Include="support\__init__.py" />
+    <Compile Include="ToolsApp\admin.py" />
+    <Compile Include="ToolsApp\api.py" />
+    <Compile Include="ToolsApp\apps.py" />
+    <Compile Include="ToolsApp\migrations\0001_initial.py" />
+    <Compile Include="ToolsApp\migrations\__init__.py" />
+    <Compile Include="ToolsApp\models.py" />
+    <Compile Include="ToolsApp\serializers.py" />
+    <Compile Include="ToolsApp\tests.py" />
+    <Compile Include="ToolsApp\views.py" />
+    <Compile Include="ToolsApp\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="accounts\" />
@@ -173,10 +195,17 @@
     <Folder Include="dashboard\static\dashboard\js\xchart\" />
     <Folder Include="dashboard\templates\" />
     <Folder Include="dashboard\templates\dashboard\" />
-    <Folder Include="sms_save_app\" />
-    <Folder Include="sms_save_app\migrations\" />
-    <Folder Include="sms_save_app\templatetags\" />
-    <Folder Include="sms_save_app\templates\" />
+    <Folder Include="GPSApp\" />
+    <Folder Include="GPSApp\migrations\" />
+    <Folder Include="GPSApp\templates\" />
+    <Folder Include="SMSApp\" />
+    <Folder Include="SMSApp\migrations\" />
+    <Folder Include="SMSApp\templates\" />
+    <Folder Include="SMSApp\templates\SMSApp\" />
+    <Folder Include="SMSApp\templatetags\" />
+    <Folder Include="support\" />
+    <Folder Include="support\migrations\" />
+    <Folder Include="support\templates\" />
     <Folder Include="templates\" />
     <Folder Include="templates\django_tables2\" />
     <Folder Include="templates\rest_framework\" />
@@ -185,9 +214,13 @@
     <Folder Include="SMSTracker\" />
     <Folder Include="templates\userena\userena\" />
     <Folder Include="templates\userena\userena\emails\" />
+    <Folder Include="ToolsApp\" />
+    <Folder Include="ToolsApp\migrations\" />
+    <Folder Include="ToolsApp\templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="accounts\templates\accounts\myprofile_list.html" />
+    <Content Include="balance\context_processors.pyc" />
     <Content Include="balance\templates\index.html" />
     <Content Include="dashboard\static\dashboard\css\bootstrap-responsive.css" />
     <Content Include="dashboard\static\dashboard\css\bootstrap.css" />
@@ -2275,12 +2308,17 @@
     <Content Include="dashboard\static\dashboard\js\wysihtml5\wysihtml5-0.3.0.min.js" />
     <Content Include="dashboard\static\dashboard\js\xchart\xcharts.min.js" />
     <Content Include="dashboard\templates\dashboard\AddSpyIdForm.html" />
+    <Content Include="dashboard\templates\dashboard\dashboard_partial.html" />
     <Content Include="dashboard\templates\dashboard\GpsMap.html" />
     <Content Include="dashboard\templates\dashboard\header_partial.html" />
     <Content Include="dashboard\templates\dashboard\index.html" />
     <Content Include="dashboard\templates\dashboard\sidebar_partial.html" />
     <Content Include="dashboard\templates\dashboard\sms_table.html" />
     <Content Include="dashboard\templates\dashboard\table_partial.html" />
+    <Content Include="GPSApp\admin.pyc" />
+    <Content Include="GPSApp\migrations\0001_initial.pyc" />
+    <Content Include="GPSApp\migrations\__init__.pyc" />
+    <Content Include="GPSApp\models.pyc" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
@@ -2311,7 +2349,10 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
-    <Content Include="sms_save_app\templates\index.html" />
+    <Content Include="SMSApp\migrations\__init__.pyc" />
+    <Content Include="SMSApp\models.pyc" />
+    <Content Include="SMSApp\__init__.pyc" />
+    <Content Include="support\templates\index.html" />
     <Content Include="templates\django_tables2\bootstrap.html" />
     <Content Include="templates\django_tables2\table.html" />
     <Content Include="templates\rest_framework\horizontal\form.html" />
@@ -2350,6 +2391,11 @@
     <Content Include="templates\userena\userena\signout.html" />
     <Content Include="templates\userena\userena\signup_complete.html" />
     <Content Include="templates\userena\userena\signup_form.html" />
+    <Content Include="ToolsApp\api.pyc" />
+    <Content Include="ToolsApp\migrations\0001_initial.pyc" />
+    <Content Include="ToolsApp\migrations\__init__.pyc" />
+    <Content Include="ToolsApp\serializers.pyc" />
+    <Content Include="ToolsApp\templates\index.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.mht">

@@ -1,4 +1,4 @@
-from .models import smstel, MoreIdSpy
+from .models import Sms
 from django.contrib.auth.models import User
 
 from rest_framework import serializers
@@ -7,15 +7,9 @@ class SmstelSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
 
     class Meta:
-        model = smstel
+        model = Sms
         #extra_kwargs = {'user': {'default': serializers.CurrentUserDefault()}}
         fields = ('from_phone', 'date', 'timestamp', 'to_phone', 'text', 'user')
-
-
-class MoreIdSpySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MoreIdSpy
-        fields = ('to_phone', 'pin', 'user')
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

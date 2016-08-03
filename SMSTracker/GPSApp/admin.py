@@ -1,5 +1,5 @@
 from django.contrib import admin
-from sms_save_app.models import GPSCoordinates
+from models import GPSCoordinates
 
 class GPSCoordinatesAdmin(admin.ModelAdmin):
     pass

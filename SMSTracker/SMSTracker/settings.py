@@ -66,7 +66,9 @@ INSTALLED_APPS = [
     'leaflet',
     'app',
     'accounts',
-    'sms_save_app',
+    'SMSApp',
+    'ToolsApp',
+    'GPSApp',
     'dashboard',
     'balance',
 ]
@@ -114,6 +116,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.request',
+                'balance.context_processors.balance',
             ],
         },
     },
@@ -154,10 +157,6 @@ JWT_AUTH = {
 
 
 
-
-
-
-
 WSGI_APPLICATION = 'SMSTracker.wsgi.application'
 
 
@@ -166,8 +165,12 @@ WSGI_APPLICATION = 'SMSTracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'SMSTracker',
+        'USER': 'wyomingcpa',
+        'PASSWORD': '83448344f',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
