@@ -85,6 +85,10 @@
     <Compile Include="SMSApp\tests.py" />
     <Compile Include="SMSApp\views.py" />
     <Compile Include="SMSApp\__init__.py" />
+    <Compile Include="SMSTracker\gunicorn.conf.py" />
+    <Compile Include="SMSTracker\settings-save.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SMSTracker\__init__.py" />
     <Compile Include="SMSTracker\settings.py" />
     <Compile Include="SMSTracker\urls.py" />

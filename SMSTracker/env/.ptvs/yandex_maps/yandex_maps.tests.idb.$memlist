@@ -1,0 +1,10 @@
+MapUrlTest
+_get_coords
+get_map_url
+RESPONSE
+GeocodeParsingTest
+COORDS
+UNKNOWN_ADDRESS
+MAP_URL
+TEST_API_KEY
+TestCase
