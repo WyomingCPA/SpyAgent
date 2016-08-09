@@ -17,9 +17,9 @@ class Migration(migrations.Migration):
             name='UserBalanceChange',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('reason', models.IntegerField(default=b'NR', choices=[(b'SR1', b'Freshman'), (b'SR2', b'Sophomore'), (b'SR3', b'Junior'), (b'NR', b'No Reason')])),
+                ('reason', models.CharField(default=b'NR', max_length=7, choices=[(b'SR1', b'Service1'), (b'SR2', b'Service2'), (b'SR3', b'Service3'), (b'NR', b'No Reason')])),
                 ('amount', models.DecimalField(default=0, max_digits=18, decimal_places=6)),
-                ('datetime', models.DateTimeField(default=datetime.datetime(2016, 7, 22, 17, 24, 14, 436000))),
+                ('datetime', models.DateTimeField(default=datetime.datetime(2016, 8, 9, 23, 40, 51, 307000))),
                 ('user', models.ForeignKey(related_name='balance_changes', to=settings.AUTH_USER_MODEL)),
             ],
         ),

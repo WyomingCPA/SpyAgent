@@ -202,6 +202,7 @@
     <Folder Include="GPSApp\" />
     <Folder Include="GPSApp\migrations\" />
     <Folder Include="GPSApp\templates\" />
+    <Folder Include="static\" />
     <Folder Include="SMSApp\" />
     <Folder Include="SMSApp\migrations\" />
     <Folder Include="SMSApp\templates\" />

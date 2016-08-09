@@ -8,13 +8,13 @@ import datetime
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('balance', '0011_auto_20160728_0032'),
+        ('balance', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='userbalancechange',
             name='datetime',
-            field=models.DateTimeField(default=datetime.datetime(2016, 7, 28, 3, 57, 2, 916000)),
+            field=models.DateTimeField(default=datetime.datetime(2016, 8, 9, 23, 41, 1, 12000)),
         ),
     ]
