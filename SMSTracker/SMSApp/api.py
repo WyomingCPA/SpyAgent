@@ -18,21 +18,18 @@ class SmstelViewSet(viewsets.ModelViewSet):
     http_method_names = ['post', ]
     
     def create(self, request, *args, **kwargs):
-
-        serializer = self.get_serializer(data=request.data, many=True)
+        serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             check_data = request.data
-            for item in check_data:
-                try:
-                    Sms.objects.get(from_phone=item['from_phone'], to_phone=item['to_phone'], text=item['text'], date=item['date'], user=item['user']) 
-                except Sms.DoesNotExist:                
-                    to_user = User.objects.get(id=item['user'])
-                    sms = Sms(from_phone=item['from_phone'], to_phone=item['to_phone'], text=item['text'], date=item['date'], user=to_user, timestamp = datetime.now())          
-                    sms.save()
+            try:
+                Sms.objects.get(from_phone=check_data['from_phone'], to_phone=check_data['to_phone'], text=check_data['text'], date=check_data['date'], user=check_data['user']) 
+            except Sms.DoesNotExist:                
+                to_user = User.objects.get(id=check_data['user'])
+                sms = Sms(from_phone=check_data['from_phone'], to_phone=check_data['to_phone'], text=check_data['text'], date=check_data['date'], user=to_user, timestamp = datetime.now())          
+                sms.save()
 
             headers = self.get_success_headers(serializer.data)
             return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-        user_balance = user.balance.value
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

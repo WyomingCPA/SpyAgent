@@ -81,7 +81,6 @@
     <Compile Include="SMSApp\apps.py" />
     <Compile Include="SMSApp\migrations\0001_initial.py" />
     <Compile Include="SMSApp\migrations\__init__.py" />
-    <Compile Include="SMSApp\templatetags\__init__.py" />
     <Compile Include="SMSApp\tests.py" />
     <Compile Include="SMSApp\views.py" />
     <Compile Include="SMSApp\__init__.py" />
@@ -207,14 +206,11 @@
     <Folder Include="SMSApp\migrations\" />
     <Folder Include="SMSApp\templates\" />
     <Folder Include="SMSApp\templates\SMSApp\" />
-    <Folder Include="SMSApp\templatetags\" />
     <Folder Include="support\" />
     <Folder Include="support\migrations\" />
     <Folder Include="support\templates\" />
     <Folder Include="templates\" />
     <Folder Include="templates\django_tables2\" />
-    <Folder Include="templates\rest_framework\" />
-    <Folder Include="templates\rest_framework\horizontal\" />
     <Folder Include="templates\userena\" />
     <Folder Include="SMSTracker\" />
     <Folder Include="templates\userena\userena\" />
@@ -2360,7 +2356,6 @@
     <Content Include="support\templates\index.html" />
     <Content Include="templates\django_tables2\bootstrap.html" />
     <Content Include="templates\django_tables2\table.html" />
-    <Content Include="templates\rest_framework\horizontal\form.html" />
     <Content Include="templates\userena\base.html" />
     <Content Include="templates\userena\userena\activate_fail.html" />
     <Content Include="templates\userena\userena\activate_retry.html" />

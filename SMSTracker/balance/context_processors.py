@@ -1,3 +1,5 @@
+
+from django.contrib.auth.models import User
 from balance.models import UserBalanceChange
 
 def balance(request):

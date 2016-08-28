@@ -25,7 +25,7 @@ def index(request):
 
 @login_required(login_url='/accounts/signin/')
 def sms_table(request):
-    data_user = Sms.objects.filter(user=request.user)
+    data_user = Sms.objects.filter(user=request.user).order_by('-date')
     if request.method == 'GET':
         form = FilterDashboardForm(request.GET)
         text_contains = request.GET.get('text_contains', '')

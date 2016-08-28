@@ -6,6 +6,7 @@ class SmsTable(tables.Table):
     to_phone = tables.Column()
     text = tables.Column()
     date = tables.Column()
+    
 
     class Meta:
         attrs = {'class': 'table table-striped table-hover'}

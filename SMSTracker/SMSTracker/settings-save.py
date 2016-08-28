@@ -34,7 +34,7 @@ SITE_ID = 1
 
 #userena settings 
 ANONYMOUS_USER_ID = -1
-AUTH_PROFILE_MODULE = 'accounts.MyProfile'
+AUTH_PROFILE_MODULE = 'accounts.CustomProfile'
 
 USERENA_SIGNIN_REDIRECT_URL = '/dashboard/'
 USERENA_REDIRECT_ON_SIGNOUT = '/'
